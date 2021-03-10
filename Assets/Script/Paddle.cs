@@ -6,17 +6,16 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     [SerializeField]
-    private int speed,score;
-
-    public Text scoreText;
+    private int speed;
 
     public float rightBarrier,leftBarrier;
+
+    public Scoring myScore;
 
     // Update is called once per frame
     void Update()
     {
         MovementPaddle();
-        
     }
 
     private void MovementPaddle()
@@ -35,10 +34,8 @@ public class Paddle : MonoBehaviour
         }
     }
 
-
-    private void OnCollisionEnter(Collision coll)
+    private void OnCollisionEnter(Collision collision)
     {
-        score++;
-        scoreText.text = score.ToString();
+        myScore.ScorePlayer();
     }
 }
